@@ -10,5 +10,32 @@
 </head>
 <body>
     <h1>Version 0.1</h1>
+
+    <!-- Paste here the generated section with cards -->
+    <div id="cards-container"></div>
+    <!-- end of generated section with cards -->
+
 </body>
+
+<script>
+    //------------------------------------------------------------------------------------
+    // Load the cards_section.html dynamically
+    fetch('cards_section.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load cards_section.html: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Inject the content into the placeholder
+            document.getElementById('cards-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading cards_section.html:', error);
+            document.getElementById('cards-container').innerHTML = '<p>Failed to load cards. Please try again later.</p>';
+        });
+    //------------------------------------------------------------------------------------
+</script>
+
 </html>
