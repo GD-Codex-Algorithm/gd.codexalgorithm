@@ -7,6 +7,7 @@ number test images are taken from https://www.flaticon.com/free-icons/numbers - 
 python script is not shared directly and modified to protect data:
 
 _______________________________________________________________________________________________________________________________________
+```
 import pandas as pd
 
 # Load the Excel file
@@ -56,4 +57,5 @@ for index, row in data.iterrows():
         file.write(html_content)
 
     print(f"Generated: {file_name}")
+```
 _______________________________________________________________________________________________________________________________________
