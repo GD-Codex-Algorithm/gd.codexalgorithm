@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic movement algorithm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1>Basic movement algorithm</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Basic movement algorithm</h2>
+            <h2> ROW 1</h2>
+            <p>A basic movement algorithm for an NPC will update the character's position to move towards a target position. The input to the algorithm will include the NPC's current position, the target position, and the speed of the NPC. The output will be the updated position of the NPC based on the desired velocity.</p>
+            //<img src="https://drive.google.com/open?id=1cSNXtQERv5_ZtRAhWVex3m6NGt9AP636" alt="Basic movement algorithm">
+            <pre>// Define the NPC's initial position
+current_position: Vector2 or Vector 3
+
+// Define the target position 
+target_position: Vector2 or Vector 3
+
+// Define the speed of the NPC 
+speed = float
+
+// Update function called every frame 
+function update(): 
+// Calculate the direction vector towards the target 
+direction= target_position - current_position
+
+// Normalize the direction vector
+// if Vector2 is:
+magnitude = √(x2 + y2)
+direction.x = direction.x / magnitude 
+direction.y = direction.y / magnitude 
+
+// if Vector3 is:
+magnitude = √(x2 + y2 + z2)
+direction.x = direction.x / magnitude 
+direction.y = direction.y / magnitude
+direction.z = direction.z / magnitude
+
+// Calculate the velocity vector 
+velocity = direction * speed 
+
+// Update the NPC's position based on velocity 
+current_position += velocity</pre>
+        </section>
+        <section>
+            <h3>variables</h3>
+            <p>Symbolic/Classic (hard-coded logic based on understandable rules)</p>
+            <p>Rule-based system</p>
+            <p>AI that plays</p>
+            <p>Non-player character NPC, Strategic opponent</p>
+            <p>Movement</p>
+            <p>Any</p>
+            <p>Any</p>
+            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</p>
+            <p>6</p>
+            <p>1</p>
+        </section>
+    </main>
+</body>
+<style>
+/* Styles for the Back to Home button */
+.back-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+</style>
+</html>

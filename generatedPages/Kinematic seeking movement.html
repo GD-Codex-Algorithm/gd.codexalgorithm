@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematic seeking movement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1>Kinematic seeking movement</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Kinematic seeking movement</h2>
+            <h2> ROW 2</h2>
+            <p>A kinematic seeking movement algorithm is designed to determine the movement of a character based on its current position and orientation. Unlike dynamic movement algorithms, which consider forces and acceleration, kinematic algorithms directly calculate the desired velocity to achieve a particular movement. The primary inputs for this algorithm are the character's current position and orientation, while the output is the velocity vector that indicates the direction and speed of movement.
+
+The kinematic seek behaviour is designed to move a character towards a target. It requires the character's static data (current position) and the target's static data (target position) as inputs. The algorithm calculates the direction from the character to the target and sets a velocity along this line. Orientation values are generally ignored. 
+
+It is importatn to realise that although this algorithm will make sure the character will keep aiming at the target position, the fact that it will keep a constant maximum speed mean that it will keep overshooting it and result in a oshillating behaviour when close to its target.</p>
+            //<img src="nan" alt="Kinematic seeking movement">
+            <pre>// Define a function to calculate the new orientation based on velocity
+function newOrientation(current: float, velocity: Vector) -> float:
+    // Ensure there is movement
+    if velocity.length() > 0:
+        // Calculate orientation from the velocity
+        return atan2(-velocity.x, velocity.y)
+    // Retain the current orientation if no movement
+    else:
+        return current
+
+// Update function called every frame
+function update():
+    // Calculate the direction vector towards the target position
+    direction = targetPosition - currentPosition
+    
+    // Normalize the direction vector
+    direction = normalize(direction)
+    
+    // Calculate the velocity vector based on the normalized direction and speed
+    velocity = direction * speed
+    
+    // Update the character's position by adding the velocity
+    currentPosition += velocity
+    
+    // Update the character's orientation based on the new velocity
+    currentOrientation = newOrientation(currentOrientation, velocity)
+</pre>
+        </section>
+        <section>
+            <h3>variables</h3>
+            <p>Symbolic/Classic (hard-coded logic based on understandable rules)</p>
+            <p>Rule-based system</p>
+            <p>AI that plays</p>
+            <p>Non-player character NPC</p>
+            <p>Movement</p>
+            <p>Any</p>
+            <p>Any</p>
+            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</p>
+            <p>6</p>
+            <p>1</p>
+        </section>
+    </main>
+</body>
+<style>
+/* Styles for the Back to Home button */
+.back-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+</style>
+</html>
