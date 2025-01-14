@@ -9,11 +9,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Version 0.1</h1>
+    <!------------------------------------------------------------------------------------ -->
 
-    <!-- Paste here the generated section with cards -->
-    <div id="cards-container"></div>
-    <!-- end of generated section with cards -->
+        <nav class="menu">
+            <div class="menu-left">
+                <a href="index.html">Main Page</a>
+            </div>
+            <div class="menu-center">
+                <a href="">How to Read</a>
+            </div>
+            <div class="menu-right">
+                <a href="">About the Project</a>
+            </div>
+        </nav>
+
+    <!------------------------------------------------------------------------------------ -->
+
+    <section class="landing-page">
+        
+        <div class="characters">
+            <div><img src="Images/MA_thesis_backcover_00.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_01-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_02-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_03-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_04-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_05-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_06-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_07-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_08-export.png" alt=""></div>
+            <div><img src="Images/MA_thesis_backcover_09-export.png" alt=""></div>
+        </div>
+
+        <div class="blob-outer-container">
+            <div class="blob-inner-container">
+                <div class="blob">
+                </div>
+            </div>
+        </div>
+        
+        <div class="home-page">
+            <div class="content">
+                <div class="quote">GD Codex Algorithm</div>
+                <div class="by">This is a cool description bro</div>
+            </div>
+        </div>
+    </section>
+    <!------------------------------------------------------------------------------------ -->
+
+    <!-- generated section with cards will be put here -->
+     <section class="cards-section" id="cards-section">¨
+        <div id="cards-container"></div>
+     </section>
+
+    <!------------------------------------------------------------------------------------ -->
+
+     <footer>
+        <small>
+            <p>created by Pietro Peduzzi 2024<br>version 0.4</p>
+        </small>
+     </footer>
 
 </body>
 
@@ -33,7 +87,7 @@
         })
         .catch(error => {
             console.error('Error loading cards_section.html:', error);
-            document.getElementById('cards-container').innerHTML = '<p>Failed to load cards. Please try again later.</p>';
+            document.getElementById('cards-container').innerHTML = '<p style="color: #fff">Failed to load cards. Please try again later.</p>';
         });
     //------------------------------------------------------------------------------------
 </script>

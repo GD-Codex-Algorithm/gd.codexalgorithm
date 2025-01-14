@@ -1,5 +1,6 @@
 /* Basic styles for the card layout */
 /*------------------------------------------------------------------------------------*/
+/*
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -39,5 +40,242 @@
 
 .card .btn:hover {
     background-color: #0056b3;
+}*/
+/*GENERAL -----------------------------------------------------------------------------------*/
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
-/*------------------------------------------------------------------------------------*/
+
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #070707;
+}
+
+.cards-section {
+    min-height: 100vh;
+    padding: 40px;
+    background-color: #070707;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/*MENU ------------------------------------------------------------------------------------*/
+
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Top Menu Styles */
+.menu {
+    position: fixed; /* Sticks to the top of the page */
+    top: 0;
+    width: 100%; /* Full-width menu */
+    background-color: #070707; /* Dark background */
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Space out the menu items */
+    align-items: center;
+    padding: 5px 10px; /* Padding for spacing */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Menu Sections */
+.menu-left, .menu-center, .menu-right {
+    flex: 1; /* Each section takes up equal space */
+    text-align: center; /* Center text within each section */
+}
+
+.menu-left {
+    text-align: left;
+}
+
+.menu-right {
+    text-align: right;
+}
+.menu a {
+    text-decoration: none; /* Remove underline */
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px; /* Add some spacing around links */
+    border-radius: 4px; /* Optional rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for links */
+.top-menu a:hover {
+    background-color: #555; /* Slightly lighter background */
+}
+
+/*CHARACTERS ------------------------------------------------------------------------------------*/
+
+.characters div{
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    background-color: transparent;
+}
+.characters div:nth-child(1){
+    top: 12%;
+    left: 42%;
+    animation: animate 10s ease-out infinite;
+    animation-delay: 0s;
+}
+.characters div:nth-child(2){
+    top: 70%;
+    left: 50%;
+    animation: animate 7s ease-out infinite;
+    animation-delay: 0s;
+}
+.characters div:nth-child(3){
+    top: 17%;
+    left: 6%;
+    animation: animate 9s ease-out infinite;
+    animation-delay: -4s;
+}
+.characters div:nth-child(4){
+    top: 20%;
+    left: 60%;
+    animation: animate 8s ease-out infinite;
+    animation-delay: 0s;
+}
+.characters div:nth-child(5){
+    top: 80%;
+    left: 10%;
+    animation: animate 11s ease-out infinite;
+    animation-delay: -1s;
+}
+.characters div:nth-child(6){
+    top: 75%;
+    left: 76%;
+    animation: animate 12s ease-out infinite;
+    animation-delay: 0s;
+}
+.characters div:nth-child(7){
+    top: 36%;
+    left: 80%;
+    animation: animate 10s ease-out infinite;
+    animation-delay: -3s;
+}
+.characters div:nth-child(8){
+    top: 42%;
+    left: 78%;
+    animation: animate 7.5s ease-out infinite;
+    animation-delay: -2s;
+}
+.characters div:nth-child(9){
+    top: 46%;
+    left: 12%;
+    animation: animate 10s ease-out infinite;
+    animation-delay: -1.5s;
+}
+.characters div:nth-child(10){
+    top: 86%;
+    left: 38%;
+    animation: animate 10s ease-out infinite;
+    animation-delay: 0s;
+}
+@keyframes animate {
+    0%{
+        transform: scale(0) translateY(0) ;
+        opacity: 0.8;
+    }
+    100%{
+        transform: scale(1.3) translateY(-110px) ;
+        opacity: 0;
+    }
+}
+
+/*LANDING TEXT ------------------------------------------------------------------------------------*/
+
+.home-page {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.content {
+    display: flex;
+    flex-direction:column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.content .quote {
+    color: white;
+    font-size: 64px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.content .by {
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/*GRADIENT ANIMATION ------------------------------------------------------------------------------------*/
+
+.blob-outer-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    inset: 0;
+    margin: auto;
+    filter: blur(100px);
+    opacity: 0.6;
+}
+.blob-inner-container{
+    border-radius: 99999px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1000px;
+    overflow: hidden;
+    background-color: #fff;
+    transform: scale(0.6);
+}
+.blob{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    margin: auto;
+    background: conic-gradient(from 0deg, #08f, rgb(230, 0, 255), #bbffa1, #4c00ff, #ab2666, #09f);
+    animation: spinBlob 16s linear infinite;
+}
+@keyframes spinBlob{
+    0%{
+        transform: rotate(0deg) scale(2);
+    }
+    100%{
+        transform: rotate(1turn) scale(2);
+    }
+}
+
+/*FOOTER ------------------------------------------------------------------------------------*/
+footer{
+    background: #070707;
+    color: #b9b9b9;
+    text-align: center;
+    padding: 5px;
+}
