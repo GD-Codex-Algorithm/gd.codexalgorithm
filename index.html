@@ -13,6 +13,7 @@
 
         <nav class="menu">
             <div class="menu-left">
+                <img src="Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;">
                 <a href="index.html">Main Page</a>
             </div>
             <div class="menu-center">
@@ -22,7 +23,7 @@
                 <a href="">About the Project</a>
             </div>
         </nav>
-
+        
     <!------------------------------------------------------------------------------------ -->
 
     <section class="landing-page">
@@ -50,7 +51,7 @@
         <div class="home-page">
             <div class="content">
                 <div class="quote">GD Codex Algorithm</div>
-                <div class="by">This is a cool description bro</div>
+                <div class="by">An archive of AI systems and algorithms for game design</div>
             </div>
         </div>
 
@@ -62,7 +63,7 @@
     <!------------------------------------------------------------------------------------ -->
 
     <!-- generated section with cards will be put here -->
-     <section class="cards-section" id="cards-section">¨
+     <section class="cards-section" id="cards-section">
         <div id="cards-container"></div>
      </section>
 
@@ -78,7 +79,7 @@
 
 <script>
     //------------------------------------------------------------------------------------
-    // Load the cards_section.html dynamically
+    // Load the cards_section.html
     fetch('cards_section.html')
         .then(response => {
             if (!response.ok) {
@@ -95,6 +96,24 @@
             document.getElementById('cards-container').innerHTML = '<p style="color: #fff">Failed to load cards. Please try again later.</p>';
         });
     //------------------------------------------------------------------------------------
+
+    window.onload = function callOnlyAfterLoad(){
+        document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+                const filterValue = this.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.card');
+                
+                cards.forEach(card => {
+                    const cardType = card.getAttribute('data-type');
+                    if (this.checked && cardType === filterValue) {
+                        card.style.display = 'flex';
+                    } else if (!this.checked && cardType === filterValue) {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 </script>
 
 </html>

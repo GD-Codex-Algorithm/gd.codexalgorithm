@@ -12,13 +12,13 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #070707;
+    background-color: whitesmoke;
 }
 
 .cards-section {
     min-height: 100vh;
     padding: 40px;
-    background-color: #070707;
+    background-color: whitesmoke;
 }
 
 html {
@@ -43,12 +43,12 @@ body {
     position: fixed; /* Sticks to the top of the page */
     top: 0;
     width: 100%; /* Full-width menu */
-    background-color: #070707; /* Dark background */
-    color: white;
+    background-color: whitesmoke; /* Dark background */
+    color: black;
     display: flex;
-    justify-content: space-between; /* Space out the menu items */
+    justify-content: center; /* Space out the menu items */
     align-items: center;
-    padding: 5px 10px; /* Padding for spacing */
+    padding: 5px 6px; /* Padding for spacing */
     z-index: 1000; /* Ensure it stays on top */
 }
 
@@ -67,7 +67,7 @@ body {
 }
 .menu a {
     text-decoration: none; /* Remove underline */
-    color: white;
+    color: black;
     font-size: 16px;
     padding: 5px 10px; /* Add some spacing around links */
     border-radius: 4px; /* Optional rounded corners */
@@ -174,7 +174,7 @@ body {
 }
 
 .content .quote {
-    color: white;
+    color: black;
     font-size: 64px;
     padding: 10px;
     border-radius: 10px;
@@ -182,7 +182,7 @@ body {
 }
 
 .content .by {
-    color: #ffffff;
+    color: black;
     text-align: center;
 }
 
@@ -247,13 +247,17 @@ body {
 }
 
 .toCodexButton:hover {
-    color: white;
-    outline: 1px solid whitesmoke;
+    color: black;
+    outline: 1px solid black;
+}
+/*CODEX FILTERS -----------------------------------------------------------------------------*/
+label{
+    color: black;
 }
 
 /*FOOTER ------------------------------------------------------------------------------------*/
 footer{
-    background: #070707;
+    background: whitesmoke;
     color: #b9b9b9;
     text-align: center;
     padding: 5px;
