@@ -200,7 +200,7 @@ body {
     opacity: 0.6;
 }
 .blob-inner-container{
-    border-radius: 99999px;
+    border-radius: 9999px;
     position: absolute;
     inset: 0;
     margin: auto;
