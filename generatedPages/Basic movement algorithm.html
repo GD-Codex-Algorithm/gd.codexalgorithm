@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic movement algorithm</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body> 
+    <nav class="menu">
+        <div class="menu-left">
+            <a href="../index.html"><img src="../Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;"></a>
+            <a href="../index.html#cards-section"> ← Back to Codex </a>
+        </div>
+        <div class="menu-center">
+            <a href="">How to Read</a>
+        </div>
+        <div class="menu-right">
+            <a href="">About the Project</a>
+        </div>
+    </nav>
+
+    <div class="separator" style="height: 50px;"></div>
+
+    <section class="main">
+        <h1 class="title">Basic movement algorithm</h1>
+        <p class="description">A basic movement algorithm for an NPC will update the character's position to move towards a target position. The input to the algorithm will include the NPC's current position, the target position, and the speed of the NPC. The output will be the updated position of the NPC based on the desired velocity.</p>
+        <div class="images">
+            <img src="https://drive.google.com/open?id=1cSNXtQERv5_ZtRAhWVex3m6NGt9AP636" alt="Basic movement algorithm" class="image">
+        </div>
+        <h2 class="title">Pseudo Code</h2>
+        <pre>
+        <div class="pre-text">
+// Define the NPC's initial position
+current_position: Vector2 or Vector 3
+
+// Define the target position 
+target_position: Vector2 or Vector 3
+
+// Define the speed of the NPC 
+speed = float
+
+// Update function called every frame 
+function update(): 
+// Calculate the direction vector towards the target 
+direction= target_position - current_position
+
+// Normalize the direction vector
+// if Vector2 is:
+magnitude = √(x2 + y2)
+direction.x = direction.x / magnitude 
+direction.y = direction.y / magnitude 
+
+// if Vector3 is:
+magnitude = √(x2 + y2 + z2)
+direction.x = direction.x / magnitude 
+direction.y = direction.y / magnitude
+direction.z = direction.z / magnitude
+
+// Calculate the velocity vector 
+velocity = direction * speed 
+
+// Update the NPC's position based on velocity 
+current_position += velocity
+        </div>
+        </pre>
+        <h2 class="title">More informations</h2>
+        <p class="description">This algorithm can be used in various games where NPCs need to move towards targets. For example, in a strategy game, NPC units can move towards enemy units or objectives using this movement algorithm.
+In a real-time strategy game like StarCraft, NPC units can move towards enemy units or resources. The movement algorithm ensures the NPC moves in the correct direction and updates its position each frame.
+
+Games Using Similar Algorithms
+Many games use variations of this basic NPC movement algorithm. Some examples include:
+Age of Empires: NPC units move towards enemy units, resources, or waypoints.
+The Sims: NPC characters navigate their environment to interact with objects and other characters.
+This algorithm forms the foundation for more advanced NPC behaviours, such as pathfinding and obstacle avoidance.
+
+More resources can be found on:
+AI for games: third edition by Ian Millington
+https://www.amazon.com/AI-Games-Third-Ian-Millington/dp/1138483974</p>
+        <div class="images">
+            <img src="https://drive.google.com/open?id=1gZaL1Hhn5y96WUzgQ7LdGjdc35bv_Brz" alt="Basic movement algorithm" class="image">
+        </div>
+        <h2 class="title">Variables</h2>
+        <div class="system-variables">
+            <p>Symbolic/Classic (hard-coded logic based on understandable rules)</p>
+            <p>Rule-based system</p>
+            <p>AI that plays</p>
+            <p>Non-player character NPC, Strategic opponent</p>
+            <p>Movement</p>
+            <p>Any</p>
+            <p>Any</p>
+            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</p>
+            <p>6</p>
+            <p>1</p>
+        </div>
+    </section>
+</body>
+<style>
+    html, body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1.title{
+            font-size: 24px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        h2.title{
+            font-size: 16px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image {
+            width: 45%; /* 90% of text width divided by 2 */
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 155, 155, 0.8);
+        }
+
+        .overlay-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        pre {
+            counter-reset: line-numbering;
+            background: #2c3e50;
+            border-radius: 10px;
+            padding: 24px 0px 6px 0;
+            width: 100%;
+            color: #ecf0f1;
+            line-height: 100%;
+            text-align:left;
+        }
+        .pre-text{
+            position: relative;
+            left: 40px;
+        }
+        .system-variables{
+            text-align: left;
+        }
+    </style>
+    <script>
+        const images = document.querySelectorAll('.image');
+        const overlay = document.getElementById('overlay');
+        const overlayImg = document.getElementById('overlay-img');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlay.style.display = "block";
+                overlayImg.src = image.src;
+            });
+        });
+
+        function closeOverlay() {
+            overlay.style.display = "none";
+        }
+    </script>
+</html>

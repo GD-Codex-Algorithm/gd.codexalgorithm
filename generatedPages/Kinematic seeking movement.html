@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematic seeking movement</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body> 
+    <nav class="menu">
+        <div class="menu-left">
+            <a href="../index.html"><img src="../Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;"></a>
+            <a href="../index.html#cards-section"> ← Back to Codex </a>
+        </div>
+        <div class="menu-center">
+            <a href="">How to Read</a>
+        </div>
+        <div class="menu-right">
+            <a href="">About the Project</a>
+        </div>
+    </nav>
+
+    <div class="separator" style="height: 50px;"></div>
+
+    <section class="main">
+        <h1 class="title">Kinematic seeking movement</h1>
+        <p class="description">A kinematic seeking movement algorithm is designed to determine the movement of a character based on its current position and orientation. Unlike dynamic movement algorithms, which consider forces and acceleration, kinematic algorithms directly calculate the desired velocity to achieve a particular movement. The primary inputs for this algorithm are the character's current position and orientation, while the output is the velocity vector that indicates the direction and speed of movement.
+
+The kinematic seek behaviour is designed to move a character towards a target. It requires the character's static data (current position) and the target's static data (target position) as inputs. The algorithm calculates the direction from the character to the target and sets a velocity along this line. Orientation values are generally ignored. 
+
+It is importatn to realise that although this algorithm will make sure the character will keep aiming at the target position, the fact that it will keep a constant maximum speed mean that it will keep overshooting it and result in a oshillating behaviour when close to its target.</p>
+        <div class="images">
+            
+        </div>
+        <h2 class="title">Pseudo Code</h2>
+        <pre>
+        <div class="pre-text">
+// Define a function to calculate the new orientation based on velocity
+function newOrientation(current: float, velocity: Vector) -> float:
+    // Ensure there is movement
+    if velocity.length() > 0:
+        // Calculate orientation from the velocity
+        return atan2(-velocity.x, velocity.y)
+    // Retain the current orientation if no movement
+    else:
+        return current
+
+// Update function called every frame
+function update():
+    // Calculate the direction vector towards the target position
+    direction = targetPosition - currentPosition
+    
+    // Normalize the direction vector
+    direction = normalize(direction)
+    
+    // Calculate the velocity vector based on the normalized direction and speed
+    velocity = direction * speed
+    
+    // Update the character's position by adding the velocity
+    currentPosition += velocity
+    
+    // Update the character's orientation based on the new velocity
+    currentOrientation = newOrientation(currentOrientation, velocity)
+
+        </div>
+        </pre>
+        <h2 class="title">More informations</h2>
+        <p class="description">More resources can be found on:
+AI for games: third edition by Ian Millington
+https://www.amazon.com/AI-Games-Third-Ian-Millington/dp/1138483974</p>
+        <div class="images">
+            
+        </div>
+        <h2 class="title">Variables</h2>
+        <div class="system-variables">
+            <p>Symbolic/Classic (hard-coded logic based on understandable rules)</p>
+            <p>Rule-based system</p>
+            <p>AI that plays</p>
+            <p>Non-player character NPC</p>
+            <p>Movement</p>
+            <p>Any</p>
+            <p>Any</p>
+            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</p>
+            <p>6</p>
+            <p>1</p>
+        </div>
+    </section>
+</body>
+<style>
+    html, body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1.title{
+            font-size: 24px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        h2.title{
+            font-size: 16px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image {
+            width: 45%; /* 90% of text width divided by 2 */
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 155, 155, 0.8);
+        }
+
+        .overlay-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        pre {
+            counter-reset: line-numbering;
+            background: #2c3e50;
+            border-radius: 10px;
+            padding: 24px 0px 6px 0;
+            width: 100%;
+            color: #ecf0f1;
+            line-height: 100%;
+            text-align:left;
+        }
+        .pre-text{
+            position: relative;
+            left: 40px;
+        }
+        .system-variables{
+            text-align: left;
+        }
+    </style>
+    <script>
+        const images = document.querySelectorAll('.image');
+        const overlay = document.getElementById('overlay');
+        const overlayImg = document.getElementById('overlay-img');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlay.style.display = "block";
+                overlayImg.src = image.src;
+            });
+        });
+
+        function closeOverlay() {
+            overlay.style.display = "none";
+        }
+    </script>
+</html>

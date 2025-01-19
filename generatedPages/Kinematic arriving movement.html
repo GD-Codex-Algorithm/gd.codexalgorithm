@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematic arriving movement</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body> 
+    <nav class="menu">
+        <div class="menu-left">
+            <a href="../index.html"><img src="../Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;"></a>
+            <a href="../index.html#cards-section"> ← Back to Codex </a>
+        </div>
+        <div class="menu-center">
+            <a href="">How to Read</a>
+        </div>
+        <div class="menu-right">
+            <a href="">About the Project</a>
+        </div>
+    </nav>
+
+    <div class="separator" style="height: 50px;"></div>
+
+    <section class="main">
+        <h1 class="title">Kinematic arriving movement</h1>
+        <p class="description">The kinematic arrive behaviour is designed to move a character towards a target position in a smooth and controlled manner, gradually slowing down as it approaches the target. This behaviour ensures that the character comes to a gentle stop at the target, rather than overshooting or abruptly stopping. The algorithm takes as input the character's current position and the target position, as well as additional parameters such as maximum speed, satisfaction radius, and time to target.
+
+How it Works:
+Direction Calculation: The algorithm first calculates the direction vector from the character to the target.
+Within Radius Check: It then checks if the character is within the satisfaction radius of the target. If it is, the algorithm requests no further movement (returns null).
+Velocity Calculation: If the character is outside the radius, the algorithm calculates the desired velocity to reach the target within a specified time (timeToTarget). This is done by dividing the direction vector by timeToTarget.
+Speed Clipping: The calculated velocity is then clipped to ensure it does not exceed the maximum speed.
+Orientation Update: The character's orientation is updated to face the direction of movement.
+Return Steering Output: The resulting velocity and rotation (which is zero in this case) are returned as the steering output.</p>
+        <div class="images">
+            
+        </div>
+        <h2 class="title">Pseudo Code</h2>
+        <pre>
+        <div class="pre-text">
+class KinematicArrive:
+    character: Static
+    target: Static
+
+    maxSpeed: float
+
+    # The satisfaction radius.
+    radius: float
+
+    # The time to target constant.
+    timeToTarget: float = 0.25
+
+    function getSteering() -> KinematicSteeringOutput:
+        result = new KinematicSteeringOutput()
+
+        # Get the direction to the target.
+        result.velocity = target.position - character.position
+
+        # Check if we’re within the radius.
+        if result.velocity.length() < radius:
+            # Request no steering.
+            return null
+
+        # We need to move to our target; we'd like to
+        # get there in timeToTarget seconds.
+        result.velocity /= timeToTarget
+
+        # If this is too fast, clip it to the max speed.
+        if result.velocity.length() > maxSpeed:
+            result.velocity.normalize()
+            result.velocity *= maxSpeed
+
+        # Face in the direction we want to move.
+        character.orientation = newOrientation(
+            character.orientation,
+            result.velocity
+        )
+
+        result.rotation = 0
+        return result
+
+        </div>
+        </pre>
+        <h2 class="title">More informations</h2>
+        <p class="description">This system is based on the kinematic seek movement algorithm and tries to solve its flaws.
+
+Satisfaction Radius: The kinematic arrive behaviour includes a satisfaction radius, which defines how close the character needs to be to the target before it stops moving. The kinematic seek behaviour does not have this feature and moves the character directly to the target without slowing down.
+
+Smooth Stopping: The kinematic arrive behaviour calculates a velocity that gradually decreases as the character approaches the target, ensuring a smooth stop. In contrast, the kinematic seek behaviour moves the character at full speed towards the target without considering deceleration.
+
+Time to Target: The kinematic arrive behaviour incorporates a timeToTarget constant to control how quickly the character should reach the target. This adds a level of control over the movement speed as the character gets closer to the target.
+
+More resources can be found on:
+AI for games: third edition by Ian Millington
+https://www.amazon.com/AI-Games-Third-Ian-Millington/dp/1138483974</p>
+        <div class="images">
+            
+        </div>
+        <h2 class="title">Variables</h2>
+        <div class="system-variables">
+            <p>Symbolic/Classic (hard-coded logic based on understandable rules)</p>
+            <p>Rule-based system</p>
+            <p>AI that plays</p>
+            <p>Non-player character NPC</p>
+            <p>Movement</p>
+            <p>Any</p>
+            <p>Any</p>
+            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</p>
+            <p>6</p>
+            <p>1</p>
+        </div>
+    </section>
+</body>
+<style>
+    html, body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1.title{
+            font-size: 24px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        h2.title{
+            font-size: 16px;
+            text-align: justify;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image {
+            width: 45%; /* 90% of text width divided by 2 */
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 155, 155, 0.8);
+        }
+
+        .overlay-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        pre {
+            counter-reset: line-numbering;
+            background: #2c3e50;
+            border-radius: 10px;
+            padding: 24px 0px 6px 0;
+            width: 100%;
+            color: #ecf0f1;
+            line-height: 100%;
+            text-align:left;
+        }
+        .pre-text{
+            position: relative;
+            left: 40px;
+        }
+        .system-variables{
+            text-align: left;
+        }
+    </style>
+    <script>
+        const images = document.querySelectorAll('.image');
+        const overlay = document.getElementById('overlay');
+        const overlayImg = document.getElementById('overlay-img');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlay.style.display = "block";
+                overlayImg.src = image.src;
+            });
+        });
+
+        function closeOverlay() {
+            overlay.style.display = "none";
+        }
+    </script>
+</html>

@@ -61,7 +61,6 @@
 
     </section>
     <!------------------------------------------------------------------------------------ -->
-
     <!-- generated section with cards will be put here -->
      <section class="cards-section" id="cards-section">
         <div id="cards-container"></div>
@@ -97,23 +96,47 @@
         });
     //------------------------------------------------------------------------------------
 
-    window.onload = function callOnlyAfterLoad(){
-        document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-                const filterValue = this.getAttribute('data-filter');
-                const cards = document.querySelectorAll('.card');
-                
-                cards.forEach(card => {
-                    const cardType = card.getAttribute('data-type');
-                    if (this.checked && cardType === filterValue) {
-                        card.style.display = 'flex';
-                    } else if (!this.checked && cardType === filterValue) {
-                        card.style.display = 'none';
-                    }
-                });
-            });
+    // Multi-filter logic to handle simultaneous filters
+    window.onload = function callOnlyAfterLoad() {
+        const checkboxes = document.querySelectorAll('.filter-checkbox'); // All filter checkboxes
+        const cards = document.querySelectorAll('.card'); // All cards
+
+        // Deselect all checkboxes on page load
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
         });
-    }
+
+        function filterCards() {
+            // Collect all active filters
+            const activeFilters = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.getAttribute('data-filter'));
+
+            // Show or hide cards based on active filters
+            cards.forEach(card => {
+                const cardType = card.getAttribute('data-type');
+                const cardEmployment = card.getAttribute('data-employment');
+                const cardTechnique = card.getAttribute('data-technique');
+
+                // Check if card matches all active filters for type and employment
+                const matches = activeFilters.every(filter => 
+                    (filter === cardType || filter === cardEmployment) || filter === cardTechnique
+                );
+
+                card.style.display = matches ? 'flex' : 'none'; // Show or hide card
+            });
+        }
+
+        // Attach change event listeners to all checkboxes
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterCards);
+        });
+
+        // Run the filter function on page load to initialize the view
+        filterCards();
+    };
+
+
 </script>
 
 </html>
