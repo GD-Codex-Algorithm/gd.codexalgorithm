@@ -117,10 +117,20 @@
                 const cardType = card.getAttribute('data-type');
                 const cardEmployment = card.getAttribute('data-employment');
                 const cardTechnique = card.getAttribute('data-technique');
+                const cardSubEmployment = card.getAttribute('data-subEmployment');
+                const cardTask = card.getAttribute('data-task');
+                const cardGenre = card.getAttribute('data-genre');
+                const cardSubGenre = card.getAttribute('data-subGenre');
 
                 // Check if card matches all active filters for type and employment
                 const matches = activeFilters.every(filter => 
-                    (filter === cardType || filter === cardEmployment) || filter === cardTechnique
+                    (filter === cardType || 
+                    filter === cardEmployment || 
+                    filter === cardTechnique ||
+                    filter === cardSubEmployment ||
+                    filter === cardTask ||
+                    filter === cardGenre ||
+                    filter === cardSubGenre)
                 );
 
                 card.style.display = matches ? 'flex' : 'none'; // Show or hide card
