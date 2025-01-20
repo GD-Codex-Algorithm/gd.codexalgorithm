@@ -11,18 +11,18 @@
 <body>
     <!------------------------------------------------------------------------------------ -->
 
-        <nav class="menu">
-            <div class="menu-left">
-                <img src="Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;">
-                <a href="index.html">Main Page</a>
-            </div>
-            <div class="menu-center">
-                <a href="">How to Read</a>
-            </div>
-            <div class="menu-right">
-                <a href="">About the Project</a>
-            </div>
-        </nav>
+    <nav class="menu">
+        <div class="menu-left">
+            <img src="Images/GD_codexalgorithm_favIcon.png" alt="" style="height: 30px;vertical-align: -9px;">
+            <a href="index.html">Main Page</a>
+        </div>
+        <div class="menu-center">
+            <a href="cards_codex.html">To Codex</a>
+        </div>
+        <div class="menu-right">
+            <a href="">How to Read</a>
+        </div>
+    </nav>
         
     <!------------------------------------------------------------------------------------ -->
 
@@ -56,16 +56,10 @@
         </div>
 
         <div class="toCodexButton-container">
-            <a href="#cards-section" class="toCodexButton">To the Codex</a>
+            <a href="cards_codex.html" class="toCodexButton">To the Codex</a>
         </div>
 
     </section>
-    <!------------------------------------------------------------------------------------ -->
-    <!-- generated section with cards will be put here -->
-     <section class="cards-section" id="cards-section">
-        <div id="cards-container"></div>
-     </section>
-
     <!------------------------------------------------------------------------------------ -->
 
      <footer>
@@ -73,80 +67,9 @@
             <p>created by Pietro Peduzzi 2024<br>version 0.4</p>
         </small>
      </footer>
-
 </body>
-
 <script>
-    //------------------------------------------------------------------------------------
-    // Load the cards_section.html
-    fetch('cards_section.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to load cards_section.html: ${response.statusText}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            // Inject the content into the placeholder
-            document.getElementById('cards-container').innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading cards_section.html:', error);
-            document.getElementById('cards-container').innerHTML = '<p style="color:#black; text-align:center;">Failed to load cards. Please try again later.</p>';
-        });
-    //------------------------------------------------------------------------------------
-
-    // Multi-filter logic to handle simultaneous filters
-    window.onload = function callOnlyAfterLoad() {
-        const checkboxes = document.querySelectorAll('.filter-checkbox'); // All filter checkboxes
-        const cards = document.querySelectorAll('.card'); // All cards
-
-        // Deselect all checkboxes on page load
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
-
-        function filterCards() {
-            // Collect all active filters
-            const activeFilters = Array.from(checkboxes)
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.getAttribute('data-filter'));
-
-            // Show or hide cards based on active filters
-            cards.forEach(card => {
-                const cardType = card.getAttribute('data-type');
-                const cardEmployment = card.getAttribute('data-employment');
-                const cardTechnique = card.getAttribute('data-technique');
-                const cardSubEmployment = card.getAttribute('data-subEmployment');
-                const cardTask = card.getAttribute('data-task');
-                const cardGenre = card.getAttribute('data-genre');
-                const cardSubGenre = card.getAttribute('data-subGenre');
-
-                // Check if card matches all active filters for type and employment
-                const matches = activeFilters.every(filter => 
-                    (filter === cardType || 
-                    filter === cardEmployment || 
-                    filter === cardTechnique ||
-                    filter === cardSubEmployment ||
-                    filter === cardTask ||
-                    filter === cardGenre ||
-                    filter === cardSubGenre)
-                );
-
-                card.style.display = matches ? 'flex' : 'none'; // Show or hide card
-            });
-        }
-
-        // Attach change event listeners to all checkboxes
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', filterCards);
-        });
-
-        // Run the filter function on page load to initialize the view
-        filterCards();
-    };
-
-
+    
 </script>
 
 </html>

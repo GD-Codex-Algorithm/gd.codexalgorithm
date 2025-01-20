@@ -57,7 +57,6 @@ body {
     flex: 1; /* Each section takes up equal space */
     text-align: center; /* Center text within each section */
 }
-
 .menu-left {
     text-align: left;
 }

@@ -1,24 +1,39 @@
 
 <div class="filters-container">
-    <label><input type="checkbox" class="filter-checkbox" data-filter="AI that creates" checked> AI that creates</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="AI that models" checked> AI that models</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="AI that plays" checked> AI that plays</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Adventure" checked> Adventure</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Any" checked> Any</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Hack & slash" checked> Hack & slash</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Learning" checked> Learning</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Machine learning" checked> Machine learning</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Movement" checked> Movement</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Neural network" checked> Neural network</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Non-player character NPC" checked> Non-player character NPC</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Non-player character NPC, Strategic opponent" checked> Non-player character NPC, Strategic opponent</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Online matchmaking" checked> Online matchmaking</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Pathfinding" checked> Pathfinding</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Real-time rendering" checked> Real-time rendering</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Rule-based system" checked> Rule-based system</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Simulation" checked> Simulation</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="State machine" checked> State machine</label>
-    <label><input type="checkbox" class="filter-checkbox" data-filter="Symbolic/Classic (hard-coded logic based on understandable rules)" checked> Symbolic/Classic (hard-coded logic based on understandable rules)</label>
+  <div class="filter-group">
+    <h3>Type</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Machine learning" checked> Machine learning</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Symbolic/Classic (hard-coded logic based on understandable rules)" checked> Symbolic/Classic (hard-coded logic based on understandable rules)</label>
+  </div>
+  <div class="filter-group">
+    <h3>Employment</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="AI that creates" checked> AI that creates</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="AI that models" checked> AI that models</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="AI that plays" checked> AI that plays</label>
+  </div>
+  <div class="filter-group">
+    <h3>Technique</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Neural network" checked> Neural network</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Rule-based system" checked> Rule-based system</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="State machine" checked> State machine</label>
+  </div>
+  <div class="filter-group">
+    <h3>Task</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Learning" checked> Learning</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Movement" checked> Movement</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Pathfinding" checked> Pathfinding</label>
+  </div>
+  <div class="filter-group">
+    <h3>Genre</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Adventure" checked> Adventure</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Any" checked> Any</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Simulation" checked> Simulation</label>
+  </div>
+  <div class="filter-group">
+    <h3>Sub-Genre</h3>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Any" checked> Any</label>
+      <label><input type="checkbox" class="filter-checkbox" data-filter="Hack & slash" checked> Hack & slash</label>
+  </div>
 </div>
 
 <section class="cards-container">
@@ -299,12 +314,42 @@
 }
 
 .filters-container {
-    margin-bottom: 20px;
-    text-align: center;
+    position: fixed;
+    right: 0;
+    top: 30px;
+    width: 250px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: calc(100% - 100px); /* Full height minus header offset */
 }
-.filters-container label {
-    margin-right: 15px;
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.filter-group label {
+    display: block;
+    margin: 5px 0;
     font-size: 1em;
+}
+
+.cards-container {
+    margin-right: 270px; /* Leave space for the sidebar */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
 }
 </style>
 
