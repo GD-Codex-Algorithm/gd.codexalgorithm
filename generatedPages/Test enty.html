@@ -40,106 +40,72 @@ nan
         <div class="images">
             
         </div>
-        <h2 class="title">Variables</h2>
-        <div class="system-variables">
-            <p>Machine learning</p>
-            <p>Neural network</p>
-            <p>AI that creates</p>
-            <p>Real-time rendering</p>
-            <p>Learning</p>
-            <p>Simulation</p>
-            <p>Any</p>
-            <p>Is run locally, Runs on PC, Runs on Playstation, Runs on handheld devices</p>
-            <p>4</p>
-            <p>8</p>
-        </div>
+        <table id="variables-table">
+            <tr>
+            <th>Variable Name</th>
+            <th>Value</th>
+            </tr>
+            <tr>
+            <td>AI system type for structure</td>
+            <td>Machine learning</td>
+            </tr>
+            <tr>
+            <td>Sub type for structure/technique</td>
+            <td>Neural network</td>
+            </tr>
+            <tr>
+            <td>AI system employment</td>
+            <td>AI that creates</td>
+            </tr>
+            <tr>
+            <td>Sub system employment</td>
+            <td>Real-time rendering</td>
+            </tr>
+            <tr>
+            <td>AI system type for task</td>
+            <td>Learning</td>
+            </tr>
+            <tr>
+            <td>Genre</td>
+            <td>Simulation</td>
+            </tr>
+            <tr>
+            <td>Sub Genre</td>
+            <td>Any</td>
+            </tr>
+            <tr>
+            <td>System requirements</td>
+            <td>Is run locally, Runs on PC, Runs on Playstation, Runs on handheld devices</td>
+            </tr>
+            <tr>
+            <td>Player immersion</td>
+            <td>
+                4/10
+                <div class="progress-bar">
+                <div class="progress" style="width: 60%;"></div>
+                </div>
+            </td>
+            </tr>
+            <tr>
+            <td>System performance</td>
+            <td>
+                8/10
+                <div class="progress-bar">
+                <div class="progress" style="width: 10%;"></div>
+                </div>
+            </td>
+            </tr>
+        </table>
     </section>
+    <footer>
+        <small>
+            <p>created by Pietro Peduzzi 2025<br>version 0.98</p>
+        </small>
+     </footer>
 </body>
 <style>
     html, body {
             font-family: Arial, sans-serif;
-        }
-
-        .main {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h1.title{
-            font-size: 24px;
-            text-align: justify;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-        h2.title{
-            font-size: 16px;
-            text-align: justify;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        .description {
-            font-size: 16px;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .images {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .image {
-            width: 45%; /* 90% of text width divided by 2 */
-            margin: 5px;
-            cursor: pointer;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(155, 155, 155, 0.8);
-        }
-
-        .overlay-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        pre {
-            counter-reset: line-numbering;
-            background: #2c3e50;
-            border-radius: 10px;
-            padding: 24px 0px 6px 0;
-            width: 100%;
-            color: #ecf0f1;
-            line-height: 100%;
-            text-align:left;
-        }
-        .pre-text{
-            position: relative;
-            left: 40px;
-        }
-        .system-variables{
-            text-align: left;
         }
     </style>
     <script>

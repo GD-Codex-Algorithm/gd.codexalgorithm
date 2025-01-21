@@ -8,7 +8,7 @@
     <title>Codex Home Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color: whitesmoke;">
     <!------------------------------------------------------------------------------------ -->
 
     <nav class="menu">
@@ -58,18 +58,92 @@
         <div class="toCodexButton-container">
             <a href="cards_codex.html" class="toCodexButton">To the Codex</a>
         </div>
-
     </section>
     <!------------------------------------------------------------------------------------ -->
+    
+
+    <section class="main" style="background-color: whitesmoke;">
+        <img src="Images/Cover_Image_top.png" alt="cover image" style="width: 80%; max-width: 1200px;">
+        <section id="floating-cards-section"></section>
+        <h1 class="title">About this project</h1>
+        <h2 class="title">Who am I</h2>
+        <p class="description">I am specialized in game design and digital products. Passionate about combining the world of research and digital development to create new processes and enhancing experiences.</p>
+        <h2 class="title">Why</h2>
+        <p class="description">In video game development, it's getting tougher to find and research algorithms. The term "artificial intelligence" is overused and makes research of algorithms and automation techniques time-consuming. Often all due to the prevailing presence of machine learning algorithms. </p>
+        <h2 class="title">What</h2>
+        <p class="description">The idea is to create a digital library that gathers AI applications, systems, and tools used in the game development community. This would be a starting point for game developers to understand the complexities of AI systems and their potential use in games.</p>
+        <h2 class="title">How</h2>
+        <p class="description">Building an accessible space showcasing examples and systems will make learning quick and easy. Users can discover points of interest and tactics used in other games. For instance, you could compare how enemies are made autonomous in Pac-Man versus how they are controlled in games like Call of Duty. </p>
+        <h2 class="title">For Whom</h2>
+        <p class="description">Game designers and the game industry will gain from a structured database of information, documenting the pros and cons of systems and identifying areas that need more research.</p>
+        <h2 class="title">Impact</h2>
+        <p class="description">Codex Algorithm evolves with AI and its impact on game development. The virtual library builds a community and resource archive to track AI advancements and aid design decisions. Often, the best solution isn’t the most elaborate but the one that looks the smartest in the simplest way.</p>
+        
+        <a href="Game Development and AI_Pietro Peduzzi_2024-2025.zip">
+            <button class="downloadButton">
+            <span class="downloadButton-content">Download my research</span>
+            </button>
+        </a>
+        <img src="Images/Cover_Image_bottom.png" alt="cover image" style="width: 80%; max-width: 1200px; margin-top: 40px;">
+    </section>
 
      <footer>
         <small>
-            <p>created by Pietro Peduzzi 2024<br>version 0.4</p>
+            <p>created by Pietro Peduzzi 2025<br>version 0.98</p>
         </small>
      </footer>
 </body>
 <script>
-    
+    // Load the floating cards section
+    fetch('floating_cards_section.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load floating_cards_section.html: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            document.getElementById('floating-cards-section').innerHTML = html;
+
+            // Initialize floating card animations
+            const container = document.querySelector('.floating-cards-container');
+            const cards = document.querySelectorAll('.floating-card');
+
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+
+            const cardData = Array.from(cards).map(card => ({
+                element: card,
+                x: Math.random() * (containerWidth - card.offsetWidth)- containerWidth / 2,
+                y: Math.random() * (containerHeight - card.offsetHeight),
+                dx: (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? -1 : 1),
+                dy: (Math.random() * 0.5 + 0.2) * (Math.random() < 0.5 ? -1 : 1),
+            }));
+
+            function animateCards() {
+                cardData.forEach(card => {
+                    card.x += card.dx;
+                    card.y += card.dy;
+
+                    if (card.x <= -containerWidth / 2 || card.x + card.element.clientWidth >= containerWidth / 2) { 
+                        card.dx *= -1; 
+                    }
+                    if (card.y <= 0 || card.y + card.element.offsetHeight >= containerHeight) {
+                        card.dy *= -1;
+                    }
+
+                    card.element.style.transform = `translate(${card.x}px, ${card.y}px)`;
+                });
+
+                requestAnimationFrame(animateCards);
+            }
+
+            animateCards();
+        })
+        .catch(error => {
+            console.error('Error loading floating_cards_section.html:', error);
+        });
 </script>
+
 
 </html>
