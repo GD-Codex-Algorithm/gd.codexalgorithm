@@ -57,7 +57,6 @@
         </div>
         <div class="card-content">
             <h3>Basic movement algorithm</h3>
-            <p>A basic movement algorithm for an NPC will update the character's position to move towards a target ......</p>
         </div>
     </a>
      
@@ -80,7 +79,6 @@
         </div>
         <div class="card-content">
             <h3>Kinematic seeking movement</h3>
-            <p>A kinematic seeking movement algorithm is designed to determine the movement of a character based on......</p>
         </div>
     </a>
      
@@ -103,7 +101,6 @@
         </div>
         <div class="card-content">
             <h3>Kinematic fleeing movement</h3>
-            <p>A kinematic fleeing algorithm is designed to determine the movement of a character based on its curr......</p>
         </div>
     </a>
      
@@ -126,7 +123,6 @@
         </div>
         <div class="card-content">
             <h3>Kinematic arriving movement</h3>
-            <p>The kinematic arrive behaviour is designed to move a character towards a target position in a smooth......</p>
         </div>
     </a>
      
@@ -149,7 +145,6 @@
         </div>
         <div class="card-content">
             <h3>Kinematic wandering moevement</h3>
-            <p>The kinematic wander movement allows a character to move in a direction based on its current orienta......</p>
         </div>
     </a>
      
@@ -172,7 +167,6 @@
         </div>
         <div class="card-content">
             <h3>Test enty</h3>
-            <p>Test entry text......</p>
         </div>
     </a>
      
@@ -195,7 +189,6 @@
         </div>
         <div class="card-content">
             <h3>Multiple images</h3>
-            <p>description......</p>
         </div>
     </a>
     
@@ -219,7 +212,7 @@
     border-color: #f0f0f0;
     overflow: hidden;
     width: 140px;
-    height: 200px;
+    height: 180px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     text-decoration: none;
     color: inherit; /* Ensure link text inherits card styling */
@@ -232,8 +225,8 @@
 
 .card-image-container {
     position: relative;
-    width: 100%; /* Slightly less than half the card width */
-    height: 60%; /* Full card height */
+    width: 100%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -282,7 +275,7 @@
 
 .card-content {
     width: 80%;
-    height: 50%;
+    height: 30%;
     padding: 8px;
     display: flex;
     flex-direction: column;
@@ -298,7 +291,7 @@
     line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
-    white-space: nowrap; /* Prevent wrapping for title */
+    white-space: wrap; /* Prevent wrapping for title */
 }
 
 .card-content p {
@@ -318,12 +311,10 @@
     right: 0;
     top: 30px;
     width: 250px;
-    background-color: #f9f9f9;
-    border-left: 1px solid #ddd;
+    background-color: #e0e0e0;
     padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    height: calc(100% - 100px); /* Full height minus header offset */
+    height: calc(100% - 30px);
 }
 
 .filter-group {
