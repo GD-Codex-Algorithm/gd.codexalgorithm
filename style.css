@@ -1,7 +1,7 @@
 /*GENERAL -----------------------------------------------------------------------------------*/
 @font-face{
     font-family: pixelFont;
-    src: url(VT323-Regular.ttf);
+    src: url(cubicfive12.ttf);
 }
 html, body {
     margin: 0;
@@ -72,7 +72,7 @@ body {
 .menu a {
     text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px 10px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
@@ -347,7 +347,10 @@ a.title{
 }
 
 .image {
-    width: 45%; /* 90% of text width divided by 2 */
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     margin: 5px;
     cursor: pointer;
 }
@@ -486,10 +489,12 @@ background-color: #f2f2f2;
 /*FOOTER ------------------------------------------------------------------------------------*/
 footer{
     font-family: pixelFont;
+    font-size: 12px;
     background: whitesmoke;
     color: #b9b9b9;
     text-align: center;
-    padding: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 /*SCROLLING VISUALS ------------------------------------------------------------------------------------*/
 .scrollContainer{
@@ -508,6 +513,7 @@ footer{
 }
 .scroll p{
     font-family: pixelFont;
+    font-size: 10px;
     margin-bottom: 0;
     line-height: 30px;
     color: #a7a7a7;

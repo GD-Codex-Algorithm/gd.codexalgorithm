@@ -39,14 +39,6 @@
     <!------------------------------------------------------------------------------------ -->
 
      <footer class="footer">
-        <div class="scrollContainer">
-            <div class="scroll">
-                <div class="rightScroll">
-                    <p>▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█ AI █║▌│║│║█║█║▌│█║▌│║│║█ ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█ ALGORITHMS █║▌│║│║█║█║▌│█║▌│║│║█ ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█  GAMES █║▌│║│║█║█║▌│█║▌│║│║█</p>
-                    <p>▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█ AI █║▌│║│║█║█║▌│█║▌│║│║█ ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█ ALGORITHMS █║▌│║│║█║█║▌│█║▌│║│║█ ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ █║▌│║│║█║█║▌│█║▌│║│║█  GAMES █║▌│║│║█║█║▌│█║▌│║│║█</p>
-                </div>
-            </div>
-        </div>
         <small>
             <p>created by Pietro Peduzzi 2025<br>version 0.98</p>
         </small>
@@ -144,7 +136,7 @@
             ];
 
             const matches = activeFilters.length === 0 || 
-                activeFilters.some(filter => cardAttributes.includes(filter));
+                activeFilters.every(filter => cardAttributes.includes(filter));
 
             card.style.display = matches ? 'flex' : 'none';
         });

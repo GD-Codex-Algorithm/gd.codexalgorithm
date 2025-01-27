@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinematic arriving movement</title>
+    <title>AI of Forza drivers</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body> 
@@ -24,73 +24,19 @@
     <div class="separator" style="height: 50px;"></div>
 
     <section class="main">
-        <h1 class="title">Kinematic arriving movement</h1>
-        <p class="description">The kinematic arrive behaviour is designed to move a character towards a target position in a smooth and controlled manner, gradually slowing down as it approaches the target. This behaviour ensures that the character comes to a gentle stop at the target, rather than overshooting or abruptly stopping. The algorithm takes as input the character's current position and the target position, as well as additional parameters such as maximum speed, satisfaction radius, and time to target.
-
-How it Works:
-Direction Calculation: The algorithm first calculates the direction vector from the character to the target.
-Within Radius Check: It then checks if the character is within the satisfaction radius of the target. If it is, the algorithm requests no further movement (returns null).
-Velocity Calculation: If the character is outside the radius, the algorithm calculates the desired velocity to reach the target within a specified time (timeToTarget). This is done by dividing the direction vector by timeToTarget.
-Speed Clipping: The calculated velocity is then clipped to ensure it does not exceed the maximum speed.
-Orientation Update: The character's orientation is updated to face the direction of movement.
-Return Steering Output: The resulting velocity and rotation (which is zero in this case) are returned as the steering output.</p>
+        <h1 class="title">AI of Forza drivers</h1>
+        <p class="description">Description</p>
         <div class="images">
             
         </div>
         <h2 class="title">Pseudo Code</h2>
         <pre>
         <div class="pre-text">
-class KinematicArrive:
-    character: Static
-    target: Static
-
-    maxSpeed: float
-
-    # The satisfaction radius.
-    radius: float
-
-    # The time to target constant.
-    timeToTarget: float = 0.25
-
-    function getSteering() -> KinematicSteeringOutput:
-        result = new KinematicSteeringOutput()
-
-        # Get the direction to the target.
-        result.velocity = target.position - character.position
-
-        # Check if we’re within the radius.
-        if result.velocity.length() < radius:
-            # Request no steering.
-            return null
-
-        # We need to move to our target; we'd like to
-        # get there in timeToTarget seconds.
-        result.velocity /= timeToTarget
-
-        # If this is too fast, clip it to the max speed.
-        if result.velocity.length() > maxSpeed:
-            result.velocity.normalize()
-            result.velocity *= maxSpeed
-
-        # Face in the direction we want to move.
-        character.orientation = newOrientation(
-            character.orientation,
-            result.velocity
-        )
-
-        result.rotation = 0
-        return result
-
+nan
         </div>
         </pre>
         <h2 class="title">More informations</h2>
-        <p class="description">This system is based on the kinematic seek movement algorithm and tries to solve its flaws.
-
-Satisfaction Radius: The kinematic arrive behaviour includes a satisfaction radius, which defines how close the character needs to be to the target before it stops moving. The kinematic seek behaviour does not have this feature and moves the character directly to the target without slowing down.
-
-Smooth Stopping: The kinematic arrive behaviour calculates a velocity that gradually decreases as the character approaches the target, ensuring a smooth stop. In contrast, the kinematic seek behaviour moves the character at full speed towards the target without considering deceleration.
-
-Time to Target: The kinematic arrive behaviour incorporates a timeToTarget constant to control how quickly the character should reach the target. This adds a level of control over the movement speed as the character gets closer to the target.</p>
+        <p class="description">No other information available.</p>
         <div class="images">
             
         </div>
@@ -101,11 +47,11 @@ Time to Target: The kinematic arrive behaviour incorporates a timeToTarget const
             </tr>
             <tr>
             <td>AI system type for structure</td>
-            <td>Symbolic/Classic (hard-coded logic based on understandable rules)</td>
+            <td>Machine learning</td>
             </tr>
             <tr>
             <td>Sub type for structure/technique</td>
-            <td>Rule-based system</td>
+            <td>Reinforcement learning</td>
             </tr>
             <tr>
             <td>AI system employment</td>
@@ -113,28 +59,28 @@ Time to Target: The kinematic arrive behaviour incorporates a timeToTarget const
             </tr>
             <tr>
             <td>Sub system employment</td>
-            <td>Non-player character NPC</td>
+            <td>Strategic opponent</td>
             </tr>
             <tr>
             <td>AI system type for task</td>
-            <td>Movement</td>
+            <td>Pathfinding</td>
             </tr>
             <tr>
             <td>Genre</td>
-            <td>Any</td>
+            <td>Sports and racing</td>
             </tr>
             <tr>
             <td>Sub Genre</td>
-            <td>Any</td>
+            <td>Racing sim</td>
             </tr>
             <tr>
             <td>System requirements</td>
-            <td>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</td>
+            <td>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox</td>
             </tr>
             <tr>
             <td>Player immersion</td>
             <td>
-                6/10
+                8/10
                 <div class="progress-bar">
                 <div class="progress" style="width: 60%;"></div>
                 </div>
@@ -143,7 +89,7 @@ Time to Target: The kinematic arrive behaviour incorporates a timeToTarget const
             <tr>
             <td>System performance</td>
             <td>
-                1/10
+                4/10
                 <div class="progress-bar">
                 <div class="progress" style="width: 10%;"></div>
                 </div>
