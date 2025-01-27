@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pac-Man Ghosts</title>
+    <title>Dynamic Encounter AI (Dying Light)2</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body> 
@@ -24,92 +24,19 @@
     <div class="separator" style="height: 50px;"></div>
 
     <section class="main">
-        <h1 class="title">Pac-Man Ghosts</h1>
-        <p class="description">In the original Pac-Man, the ghosts (also called monsters) have distinct behaviours. Each ghost has a unique personality and movement pattern designed to challenge the player in different ways. Despite appearing random, their movements are governed by precise rules.
-<br>
-<br>General Behaviour
-<br>Modes: Ghosts switch between two main modes:
-<br>Chase Mode: They actively pursue Pac-Man based on their specific targeting logic.
-<br>Scatter Mode: They move to their predefined "home corners" on the map and patrol there.
-<br>Frightened Mode: When Pac-Man eats a Power Pellet, ghosts turn blue and move randomly, allowing Pac-Man to eat them for points.
-<br>Collision Mechanics: If Pac-Man collides with a ghost in chase or scatter mode, he loses a life. If a ghost is in frightened mode, Pac-Man "eats" the ghost, sending it back to the ghost house to respawn.
-<br>Ghost Personalities
-<br>Each ghost has a unique targeting behaviour:
-<br>
-<br>Blinky (Red):
-<br>Nicknamed "Chaser."
-<br>Targets Pac-Man's current position directly.
-<br>Becomes faster as more dots are eaten, earning the nickname "Cruise Elroy.
-<br>
-<br>Pinky (Pink):
-<br>Nicknamed "Ambusher."
-<br>Tries to move to a position four tiles ahead of Pac-Man in the direction he’s currently facing.
-<br>Sometimes appears to "cut off" Pac-Man.
-<br>
-<br>Inky (Cyan):
-<br>Nicknamed "Fickle."
-<br>Targets a position determined by both Blinky's position and Pac-Man's position, creating complex behaviour.
-<br>The target tile is calculated as a reflection of Blinky's position relative to a tile two tiles ahead of Pac-Man.
-<br>
-<br>Clyde (Orange):
-<br>Nicknamed "Pokey."
-<br>Alternates between chasing Pac-Man and retreating to his home corner.
-<br>If Clyde is more than eight tiles away from Pac-Man, he chases. If closer, he moves toward his scatter corner.</p>
+        <h1 class="title">Dynamic Encounter AI (Dying Light)2</h1>
+        <p class="description">Uses a scripting system and state machine to control the day-night cycle, where zombie behavior drastically changes based on time of day—more aggressive and dynamic during the night.</p>
         <div class="images">
-            <img src="../Images/pac-man_ghost behaviour.png" alt="Pac-Man Ghosts" class="image">
-<img src="../Images/pac-man_ghost patrol patterns.png" alt="Pac-Man Ghosts" class="image">
+            
         </div>
         <h2 class="title">Pseudo Code</h2>
         <pre>
         <div class="pre-text">
-initialize ghost with (name, color, scatterCorner)
-set mode = "scatter"
-
-while game_running:
-    if mode == "scatter":
-        move_towards(scatterCorner)
-    else if mode == "chase":
-        if ghost.name == "Blinky":
-            target = pacman.position
-        else if ghost.name == "Pinky":
-            target = position_ahead_of(pacman, 4)
-        else if ghost.name == "Inky":
-            vector = position_ahead_of(pacman, 2) - blinky.position
-            target = position_ahead_of(pacman, 2) + vector
-        else if ghost.name == "Clyde":
-            if distance_to(pacman) > 8:
-                target = pacman.position
-            else:
-                target = scatterCorner
-
-        move_towards(target)
-
-    if pacman_eats_power_pellet:
-        mode = "frightened"
-        move_randomly()
-
-    if collision_with(pacman):
-        if mode == "frightened":
-            ghost_respawn()
-        else:
-            pacman_lose_life()
-
-    check_mode_switch_timer()
-end
-
+nan
         </div>
         </pre>
         <h2 class="title">More informations</h2>
-        <p class="description">"The Pac-Man Dossier" by Jamey Pittman:
-            <br>This extensive guide delves into the game's mechanics, including a thorough examination of the ghost AI.
-            <br>It offers detailed explanations of the pathfinding logic, state transitions, and the specific behaviours that give each ghost its unique personality.
-            <br>Read the dossier here:
-            <br><a href="https://designoriented.net/blog/2015/06/09/201569pac-man-design-deterministic-and-random-ghosts/">https://designoriented.net/blog/2015/06/09/201569pac-man-design-deterministic-and-random-ghosts/</a>
-            <br>
-            <br>"Pac-Man Ghost AI Explained" Video:
-            <br>For a visual and auditory explanation, this video breaks down the algorithms and logic that dictate ghost behaviour in an accessible format.
-            <br>Watch the video here:
-            <br><a href="https://www.youtube.com/watch?v=ataGotQ7ir8">https://www.youtube.com/watch?v=ataGotQ7ir8</a> </p> 
+        <p class="description">No other information available.</p>
         <div class="images">
             
         </div>
@@ -124,31 +51,31 @@ end
             </tr>
             <tr>
             <td>Sub type for structure/technique</td>
-            <td>Finite state machine (FSM)</td>
+            <td>State machine</td>
             </tr>
             <tr>
             <td>AI system employment</td>
-            <td>AI that plays</td>
+            <td>AI that models</td>
             </tr>
             <tr>
             <td>Sub system employment</td>
-            <td>Non-player character NPC</td>
+            <td>Managing experience</td>
             </tr>
             <tr>
             <td>AI system type for task</td>
-            <td>Pathfinding</td>
+            <td>Decision making</td>
             </tr>
             <tr>
             <td>Genre</td>
-            <td>Any</td>
+            <td>Adventure</td>
             </tr>
             <tr>
             <td>Sub Genre</td>
-            <td>Arcade and rhythm</td>
+            <td>Any</td>
             </tr>
             <tr>
             <td>System requirements</td>
-            <td>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox, Runs on mobile, Runs on handheld devices</td>
+            <td>Is run locally, Runs on PC, Runs on Playstation, Runs on Xbox</td>
             </tr>
             <tr>
             <td>Player immersion</td>
@@ -162,7 +89,7 @@ end
             <tr>
             <td>System performance</td>
             <td>
-                1/10
+                5/10
                 <div class="progress-bar">
                 <div class="progress" style="width: 10%;"></div>
                 </div>
