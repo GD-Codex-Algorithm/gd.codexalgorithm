@@ -15,8 +15,10 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     background-color: whitesmoke;
+    width: 100%;
 }
 
 .cards-section {
@@ -27,6 +29,7 @@ html, body {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 /*MENU ------------------------------------------------------------------------------------*/
 
@@ -83,6 +86,17 @@ body {
     background-color: #555; /* Slightly lighter background */
 }
 
+@media (max-width: 500px) {
+    .menu{
+        width: 100vw;
+    }
+    .menu img{
+        display: none;
+    }
+    .menu a{
+        font-size: 12px;
+    }
+}
 /*CHARACTERS ------------------------------------------------------------------------------------*/
 
 .characters div{
@@ -188,9 +202,29 @@ body {
 .content .by {
     color: black;
     text-align: center;
+    font-size: 16px;
 }
 
-
+@media (max-width: 500px){
+    .landing-page{
+        width: 100%;
+    }
+    .blob-outer-container{
+       display: none;
+    }
+    .content .quote{
+        font-size: 30px;
+    }
+    .content .by{
+        font-size: 14px;
+    }
+    .scrollContainer{
+        width: 100%;
+    }
+    .main{
+        width: 100%;
+    }
+}
 /*GRADIENT ANIMATION ------------------------------------------------------------------------------------*/
 
 .blob-outer-container {
@@ -245,7 +279,7 @@ body {
     color: rgb(100, 100, 100);
     outline: 1px solid rgb(100, 100, 100);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     transition: color 0.3s ease;
     transition: outline 0.3s ease;
 }
@@ -254,6 +288,17 @@ body {
     color: black;
     outline: 1px solid black;
 }
+
+@media (max-width: 500px){
+    .toCodexButton-container{
+        position: relative;
+        align-self: center;
+    }
+    .toCodexButton{
+        font-size: 20px;
+    }
+}
+
 /*CODEX FILTERS -----------------------------------------------------------------------------*/
 label{
     color: black;
@@ -439,6 +484,22 @@ background-color: #f2f2f2;
     background-color: #2c3e50;
     border-radius: 5px;
 }
+
+@media (max-width: 500px){
+    .main{
+        padding: 20px;
+    }
+    h1.title{
+        font-size: 18px;
+    }
+    h2.title{
+        font-size: 18px;
+    }
+    p.description{
+        font-size: 16px;
+    }
+}
+
 /*DOWNLOAD BUTTON ------------------------------------------------------------------------------------*/
 .downloadButton {
     position: relative;
@@ -486,6 +547,12 @@ background-color: #f2f2f2;
       rgba(99, 88, 238, 1) 94.3%
     );
   }
+  @media (max-width: 500px){
+    .downloadButton{
+        font-size: 20px;
+        height: 60px;
+    }
+  }
 /*FOOTER ------------------------------------------------------------------------------------*/
 footer{
     font-family: pixelFont;
@@ -496,6 +563,13 @@ footer{
     padding-top: 30px;
     padding-bottom: 30px;
 }
+
+ @media (max-width: 500px){
+    footer{
+        width: 100%;
+        font-size: 14px;
+    }
+ }
 /*SCROLLING VISUALS ------------------------------------------------------------------------------------*/
 .scrollContainer{
     display: flex;
